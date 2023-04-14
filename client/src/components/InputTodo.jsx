@@ -12,31 +12,31 @@ const InputTodo = () => {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),
 			});
-			console.log(response);
-			window.location = '/';
 		} catch (err) {
 			console.error(err.message);
 		}
 	};
 
 	return (
-		<>
-			<h1 className='text-center mt-2'>Todo List</h1>
-
-			<form onSubmit={onSubmitForm}>
-				<input
-					type='text'
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
-				/>
-				<button
-					type='submit'
-					className='h-10 px-6 rounded-md bg-black text-white font-bold'
-				>
-					Add
-				</button>
-			</form>
-		</>
+		<form
+			className='absolute h-1/6 justify-center flex flex-row flex-nowrap inset-x-0 bottom-0'
+			onSubmit={onSubmitForm}
+		>
+			<lable for='description'>New todo:</lable>
+			<input
+				type='text'
+				id='description'
+				placeholder='Add new to do here.'
+				value={description}
+				onChange={(e) => setDescription(e.target.value)}
+			/>
+			<button
+				type='submit'
+				className='px-2 rounded-md bg-green-300 text-gray-600 font-bold'
+			>
+				Add
+			</button>
+		</form>
 	);
 };
 
