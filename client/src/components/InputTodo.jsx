@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import React from 'react';
 
-const InputTodo = () => {
+const InputTodo = (App) => {
 	const [description, setDescription] = useState('');
 	const onSubmitForm = async (e) => {
 		e.preventDefault();
@@ -12,6 +12,7 @@ const InputTodo = () => {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),
 			});
+			App.onAddTodo();
 		} catch (err) {
 			console.error(err.message);
 		}
@@ -19,11 +20,11 @@ const InputTodo = () => {
 
 	return (
 		<form
-			className='absolute h-1/6 justify-center flex flex-row flex-nowrap inset-x-0 bottom-0'
+			className='h-1/5 flex flex-col sm:flex-row sm:w-full sm:justify-center justify-end'
 			onSubmit={onSubmitForm}
 		>
-			<lable for='description'>New todo:</lable>
 			<input
+				className='sm:grow sm:h-auto text-center h-2/5 border border-gray-300 rounded-md px-2'
 				type='text'
 				id='description'
 				placeholder='Add new to do here.'
@@ -32,7 +33,7 @@ const InputTodo = () => {
 			/>
 			<button
 				type='submit'
-				className='px-2 rounded-md bg-green-300 text-gray-600 font-bold'
+				className='sm:grow sm:h-auto px-2 h-2/5 rounded-md bg-green-300 text-gray-600 font-bold'
 			>
 				Add
 			</button>
