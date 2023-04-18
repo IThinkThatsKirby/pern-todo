@@ -23,7 +23,7 @@ const ListTodo = (prop) => {
 	};
 	const deleteTodo = async (id) => {
 		try {
-			await fetch(`http://localhost:5000/todos/${id}`, {
+			await fetch(`/todos/${id}`, {
 				method: 'DELETE',
 			});
 			getTodos();
