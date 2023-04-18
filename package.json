@@ -10,7 +10,8 @@
   "scripts": {
     "start:client": "npx http-server ./client/dist --cors",
     "start:server": "npx node ./server/index.js",
-    "start:full": "yarn run start:client & yarn run start:server"
+    "start:full": "concurrently \"yarn run start:client\" \"yarn run start:server\""
+
   },
   "repository": "git+https://github.com/IThinkThatsKirby/pern-todo.git",
   "author": "ithinkthatskirby <gitblamekirby@ithinkthats.mozmail.com>",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/IThinkThatsKirby/pern-todo/issues"
   },
-  "homepage": "https://github.com/IThinkThatsKirby/pern-todo#readme"
+  "homepage": "https://github.com/IThinkThatsKirby/pern-todo#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
 }
