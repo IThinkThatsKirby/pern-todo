@@ -4,9 +4,11 @@ const app = express();
 const cors = require('cors');
 const pool = require('./db.js');
 const port = process.env.PORT;
+const path = require('path');
 //middleware
 app.use(cors());
 app.use(express.json()); // gives access to req.body
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 //routes
 
@@ -71,9 +73,11 @@ app.delete('/todos/:id', async (req, res) => {
 		console.error(err.message);
 	}
 });
-app.get('/', (req, res) => {
-	res.;
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
+
 app.listen(port, () => {
 	console.log(`Server is running on ${port}`);
 });
