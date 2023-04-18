@@ -71,7 +71,9 @@ app.delete('/todos/:id', async (req, res) => {
 		console.error(err.message);
 	}
 });
-
+app.get('/', (req, res) => {
+	res.;
+});
 app.listen(port, () => {
 	console.log(`Server is running on ${port}`);
 });
