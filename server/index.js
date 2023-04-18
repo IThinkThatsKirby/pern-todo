@@ -6,6 +6,11 @@ const pool = require('./db.js');
 const port = process.env.PORT;
 const path = require('path');
 //middleware
+app.use(
+	cors({
+		origin: 'http://localhost:5000',
+	})
+);
 app.use(express.json()); // gives access to req.body
 app.use(express.static(path.join(__dirname, '../client/dist')));
 

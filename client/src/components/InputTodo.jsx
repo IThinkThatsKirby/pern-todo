@@ -24,7 +24,7 @@ const InputTodo = (App) => {
 			onSubmit={onSubmitForm}
 		>
 			<input
-				className='sm:grow h-full text-center h-2/5 border border-gray-300 rounded-md px-2'
+				className='sm:grow h-full text-center border border-gray-300 rounded-md px-2'
 				type='text'
 				id='description'
 				placeholder='Add new to do here.'
@@ -33,7 +33,7 @@ const InputTodo = (App) => {
 			/>
 			<button
 				type='submit'
-				className='sm:grow h-full px-2 h-2/5 rounded-md bg-green-300 text-gray-600 font-bold'
+				className='sm:grow h-full px-2 rounded-md bg-green-300 text-gray-600 font-bold'
 			>
 				Add
 			</button>
