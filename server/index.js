@@ -10,6 +10,15 @@ app.use(cors());
 app.use(express.json()); // gives access to req.body
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+// Set CORS headers
+res.setHeader('Access-Control-Allow-Origin', '*');
+res.setHeader(
+	'Access-Control-Allow-Methods',
+	'GET, POST, PUT, DELETE, OPTIONS'
+);
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+res.setHeader('Access-Control-Allow-Credentials', true);
+
 //routes
 
 //create todo
