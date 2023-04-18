@@ -1,0 +1,20 @@
+{
+  "name": "pern-todo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ptd",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+
+  },
+  "repository": "git+https://github.com/IThinkThatsKirby/pern-todo.git",
+  "author": "ithinkthatskirby <gitblamekirby@ithinkthats.mozmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IThinkThatsKirby/pern-todo/issues"
+  },
+  "homepage": "https://github.com/IThinkThatsKirby/pern-todo#readme"
+}
