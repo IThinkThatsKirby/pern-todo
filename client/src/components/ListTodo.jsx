@@ -14,7 +14,7 @@ const ListTodo = (prop) => {
 	};
 	const getTodos = async () => {
 		try {
-			const res = await fetch(`/todos`);
+			const res = await fetch('http://localhost:5000/todos');
 			const jsonData = await res.json();
 			setTodos(jsonData);
 		} catch (err) {

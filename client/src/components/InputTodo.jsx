@@ -7,7 +7,7 @@ const InputTodo = (App) => {
 		e.preventDefault();
 		try {
 			const body = { description };
-			const response = await fetch('/todos', {
+			const response = await fetch('http://localhost:5000/todos', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),
@@ -20,11 +20,11 @@ const InputTodo = (App) => {
 
 	return (
 		<form
-			className='h-1/5 flex flex-col sm:flex-row sm:w-full sm:justify-center justify-end'
+			className='h-2/5 flex flex-col sm:flex-row sm:w-full sm:justify-center justify-end sm:fixed sm:bottom-0 sm:items-center'
 			onSubmit={onSubmitForm}
 		>
 			<input
-				className='sm:grow sm:h-auto text-center h-2/5 border border-gray-300 rounded-md px-2'
+				className='sm:grow h-full text-center h-2/5 border border-gray-300 rounded-md px-2'
 				type='text'
 				id='description'
 				placeholder='Add new to do here.'
@@ -33,7 +33,7 @@ const InputTodo = (App) => {
 			/>
 			<button
 				type='submit'
-				className='sm:grow sm:h-auto px-2 h-2/5 rounded-md bg-green-300 text-gray-600 font-bold'
+				className='sm:grow h-full px-2 h-2/5 rounded-md bg-green-300 text-gray-600 font-bold'
 			>
 				Add
 			</button>

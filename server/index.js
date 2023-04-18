@@ -4,7 +4,6 @@ const app = express();
 const cors = require('cors');
 const pool = require('./db.js');
 const port = process.env.PORT;
-
 //middleware
 app.use(cors());
 app.use(express.json()); // gives access to req.body
@@ -26,6 +25,7 @@ app.post('/todos', async (req, res) => {
 });
 //get all todo
 app.get('/todos', async (req, res) => {
+	console.log('here');
 	try {
 		const allTodos = await pool.query('SELECT * FROM todo');
 		res.json(allTodos.rows);
@@ -72,6 +72,6 @@ app.delete('/todos/:id', async (req, res) => {
 	}
 });
 
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, () => {
 	console.log(`Server is running on ${port}`);
 });
