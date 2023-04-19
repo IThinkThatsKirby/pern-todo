@@ -35,7 +35,6 @@ const ListTodo = (prop) => {
 		getTodos();
 	}, []);
 	useEffect(() => {
-		console.log(prop);
 		getTodos();
 	}, [prop]);
 	return (
@@ -58,7 +57,6 @@ const ListTodo = (prop) => {
 				</thead>
 				<tbody>
 					{todos.map((todo) => {
-						console.log(todos);
 						return (
 							<tr key={todo.todo_id}>
 								<td className='border border-slate-300 truncate'>

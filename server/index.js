@@ -1,14 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-
+const router = require('./routes/router.js');
 const pool = require('./db.js');
 const port = process.env.PORT;
 const path = require('path');
 //middleware
 app.use(express.json()); // gives access to req.body
-app.use(express.static(path.join(__dirname, '/dist')));
-
+// app.use(express.static(path.join(__dirname, '/dist')));
+app.use('/', router);
 //routes
 
 //create todo
@@ -26,7 +26,6 @@ app.post('/todos', async (req, res) => {
 });
 //get all todo
 app.get('/todos', async (req, res) => {
-	console.log('here');
 	try {
 		const allTodos = await pool.query('SELECT * FROM todo');
 		res.json(allTodos.rows);
@@ -73,9 +72,9 @@ app.delete('/todos/:id', async (req, res) => {
 	}
 });
 
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '/server/dist/index.html'));
-});
+// app.get('/', (req, res) => {
+// 	res.sendFile('/dist/index.html');
+// });
 
 app.listen(port, () => {
 	console.log(`Server is running on ${port}`);
