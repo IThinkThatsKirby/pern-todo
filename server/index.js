@@ -1,25 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const cors = require('cors');
+
 const pool = require('./db.js');
 const port = process.env.PORT;
 const path = require('path');
 //middleware
-app.use(cors());
 app.use(express.json()); // gives access to req.body
-app.use(express.static(path.join(__dirname, '../client/dist')));
-
-// Set up CORS headers
-app.use(function (req, res, next) {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-	res.header(
-		'Access-Control-Allow-Headers',
-		'Origin, X-Requested-With, Content-Type, Accept'
-	);
-	next();
-});
+app.use(express.static(path.join(__dirname, '/dist')));
 
 //routes
 
@@ -86,7 +74,7 @@ app.delete('/todos/:id', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+	res.sendFile(path.join(__dirname, '/server/dist/index.html'));
 });
 
 app.listen(port, () => {
